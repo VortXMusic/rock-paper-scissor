@@ -36,17 +36,18 @@ function playRound(playerSelection, computerSelection)
 }
 
 //Main game loop
+mainLoop: //Label name to use in the end-game break function
 do
 {
     //Making sure the player enters a valid choice
     do{
         playerSelection=getPlayerChoice();
-        /* Optional end game function
+        //Optional end game function
         if(playerSelection=='n')
         {
             endFlag=true;
-            break;
-        } */
+            break mainLoop; //breaks out of mainLoop, endind the game as a result
+        } 
         if(!items.includes(playerSelection))
             console.log('You have entered an invalid choice, please try again!');
     }while(!items.includes(playerSelection));
