@@ -35,7 +35,7 @@ function playRound(playerSelection, computerSelection)
     }
 }
 
-
+//Main game loop
 do
 {
     //Making sure the player enters a valid choice
