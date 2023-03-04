@@ -1,8 +1,8 @@
 //Global Variable declaration
 const items = ['Rock','Paper','Scissors'];
 let playerScore = 0, computerScore = 0;
-let endFlag=false;
-const playerWinCondition='Rock-Scissors Paper-Rock Scissors-Paper';
+let endFlag=false; //Flag used to decide whether to end the game or not
+const playerWinCondition='Rock-Scissors Paper-Rock Scissors-Paper'; //Player win condition pairs
 let playerSelection;
 
 //returns Rock, Paper or Scissors randomly
@@ -13,7 +13,7 @@ function getPlayerChoice()
     return choice;
 }
 
-
+//Plays 1 round where the player and computer selections are given
 function playRound(playerSelection, computerSelection)
 {
     let roundSelection = playerSelection+'-'+computerSelection;
@@ -38,6 +38,7 @@ function playRound(playerSelection, computerSelection)
 
 do
 {
+    //Making sure the player enters a valid choice
     do{
         playerSelection=getPlayerChoice();
         /* Optional end game function
@@ -52,13 +53,18 @@ do
 
 let computerSelection=getComputerChoice();
 
+//Displaying Selections, round result and Scores
 console.log('Player Selection: '+playerSelection+'\nComputer Selection: '+computerSelection);
 console.log(playRound(playerSelection,computerSelection));
 console.log('Player Score:'+playerScore+'     Computer Score: '+computerScore);
 
+//Checks for game end conditions
 if(playerScore==5||computerScore==5)
 {
+    //Decides who the winner of the game is:
     playerScore==5?console.log('Player wins the game!!'):console.log('Computer Wins the game!!');
+
+    //Option to restart the game
     let endChoice=prompt('Enter \'y\' if you want to restart the game: ');
     if(endChoice=='y'||endChoice=='Y'||endChoice=='Yes')
         playerScore=0, computerScore=0;
